@@ -1,34 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Password Generator</h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Password Generator</h1>
+    </header>
+    <div class="card">
+      <header class="card-header">
+        <h2>Generate a Password</h2>
       </header>
-      <div class="card">
-        <div class="card-header">
-          <h2>Generate a Password</h2>
-        </div>
-        <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
-        </div>
-        <div class="card-footer">
-          <button id="generate" class="btn">Generate Password</button>
+      <div class="card-body">
+        <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
+      </div>
+      <div class="card-body" id="prompt-length">
+        <header class="prompt-header">
+          <h3>How many characters would you like in your password?</h3>
+        </header>
+        <div class="prompt-body">
+          <div class="slider-container">
+            <p>Characters: <span id="slider-value"></span></p>
+            <input type="range" min="8" max="128" value="15" class="slider" id="slider-length">
+          </div>
+          <div class="prompt-controls">
+            <button class="btn-primary">Continue</button>
+            <button class="btn-secondary">Cancel</button>
+          </div>
         </div>
       </div>
+      <div class="card-body" id="prompt-characters">
+        <header class="prompt-header">
+          <h3>Select the types of characters you want in your password.</h3>
+        </header>
+        <div class="prompt-body flexbox">
+          <div class="char-choice">
+            <input type="checkbox" name="char-lower" id="char-lower"><label for="char-lower">Lowercase Letters</label>
+          </div>
+          <div class="char-choice">
+            <input type="checkbox" name="char-upper" id="char-upper"><label for="char-upper">Uppercase Letters</label>
+          </div>
+          <div class="char-choice">
+            <input type="checkbox" name="char-number" id="char-number"><label for="char-number">Numbers</label>
+          </div>
+          <div class="char-choice">
+            <input type="checkbox" name="char-special" id="char-special"><label for="char-special">Special
+              Characters</label>
+          </div>
+          <div class="prompt-controls">
+            <button class="btn-primary">Generate Password</button>
+            <button class="btn-secondary">Cancel</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button id="generate" class="btn-primary">Generate Password</button>
+      </div>
     </div>
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>

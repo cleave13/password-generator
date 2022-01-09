@@ -1,3 +1,8 @@
+:root {
+  --color-red: hsl(360, 91%, 36%);
+  --color-white: hsl(0, 0%, 100%);
+}
+
 *,
 *::before,
 *::after {
@@ -18,15 +23,15 @@ body {
 }
 
 .wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-top: 3%;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 header {
   text-align: center;
-  padding: 20px;
-  padding-top: 0px;
+  padding: 2%;
+  padding-top: 0;
   color: hsl(206, 17%, 28%);
 }
 
@@ -72,17 +77,30 @@ header {
   clear: both;
 }
 
-.btn {
+.btn-primary {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: var(--color-red);
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
-  color: hsl(0, 0%, 100%);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+  color: var(--color-white);
   display: inline-block;
   font-size: 22px;
   line-height: 22px;
-  margin: 16px 16px 16px 20px;
+  margin: 2%;
+  padding: 14px 34px;
+  text-align: center;
+  cursor: pointer;
+}
+.btn-secondary {
+  border: none;
+  background-color: var(--color-white);
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+  color: var(--color-red);
+  display: inline-block;
+  font-size: 22px;
+  line-height: 22px;
+  margin: 2%;
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
@@ -97,25 +115,68 @@ button[disabled] {
   float: right;
 }
 
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.prompt-header {
+  width: 100%;
+  text-align: left;
+  margin-top: 5%;
+}
+
+.prompt-body {
+  width: 100%;
+  margin: 0 5%;
+}
+
+.prompt-controls {
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.slider-container > p {
+  margin: 3% 2%;
+}
+
+.char-choice {
+  width: 40%;
+  margin: 2%;
+}
+
+.char-choice label {
+  margin-left: 10px;
+}
+
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
   display: block;
-  width: 100%;
+  width: 96%;
   padding-top: 15px;
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 85px;
   font-size: 1.2rem;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 2%;
   border: 2px dashed #c0c7cf;
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+}
+
+#slider-length {
+  width: 86%;
+  margin: 0 2%;
+}
+
+#slider-value {
+  text-align: center;
+  margin: 0 auto;
 }
 
 @media (max-width: 690px) {
