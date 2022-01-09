@@ -28,9 +28,9 @@ function generatePassword() {
   const charUpper = document.getElementById("char-upper").checked;
   const charNumber = document.getElementById("char-number").checked;
   const charSpecial = document.getElementById("char-special").checked;
-  const lettersArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-  const numbersArray = [0,1,2,3,4,5,6,7,8,9]
-  const specialArray = ['!','#','$','%','&','(',')','*','+','-','.','/',':',';','<','=','>','?','@','[',']','^','_','{','|','}']
+  const lettersArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  const numbersArray = [0,1,2,3,4,5,6,7,8,9];
+  const specialArray = ['!','#','$','%','&','(',')','*','+','-','.','/',':',';','<','=','>','?','@','[',']','^','_','{','|','}'];
   let passwordString = '';
   let nextChar = '';
   
@@ -53,6 +53,7 @@ function generatePassword() {
     if(passwordString.length > charLength) {
       passwordString = passwordString.substring(0, charLength);
     }
+  }
   return passwordString;
 }
 
@@ -69,4 +70,3 @@ function writePassword() {
 generateBtn.addEventListener('click', () => {
   writePassword();
 })
-
