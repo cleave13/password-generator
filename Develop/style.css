@@ -63,7 +63,7 @@ header {
   text-align: center;
 }
 
-.card-footer::before {
+.card-footer::before, .prompt-wrapper.active::before {
   content: " ";
   display: block;
   width: 100%;
@@ -115,9 +115,25 @@ button[disabled] {
   float: right;
 }
 
-.flexbox {
+.flexbox-wrap {
   display: flex;
   flex-wrap: wrap;
+}
+
+.prompt-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in;
+}
+
+.prompt-wrapper.active {
+  max-height: 100%;
+  transition: max-height 0.3s ease-out;
+}
+
+.prompt {
+  display: block;
+  flex: 0 0 100%;
 }
 
 .prompt-header {
@@ -138,7 +154,7 @@ button[disabled] {
 }
 
 .slider-container > p {
-  margin: 3% 2%;
+  margin: 2%;
 }
 
 .char-choice {
@@ -177,6 +193,14 @@ button[disabled] {
 #slider-value {
   text-align: center;
   margin: 0 auto;
+}
+
+#configure.active {
+  display: none;
+}
+
+#unselected {
+  color: var(--color-red);
 }
 
 @media (max-width: 690px) {

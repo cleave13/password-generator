@@ -21,42 +21,44 @@
       <div class="card-body">
         <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
       </div>
-      <div class="card-body" id="prompt-length">
-        <header class="prompt-header">
-          <h3>How many characters would you like in your password?</h3>
-        </header>
-        <div class="prompt-body">
-          <div class="slider-container">
-            <p>Characters: <span id="slider-value"></span></p>
-            <input type="range" min="8" max="128" value="15" class="slider" id="slider-length">
-          </div>
-          <div class="prompt-controls">
-            <button class="btn-primary" id="continue">Continue</button>
-            <button class="btn-secondary" class="cancel">Cancel</button>
+      <div class="prompt-wrapper">
+        <div class="card-body prompt" id="prompt-length">
+          <header class="prompt-header">
+            <h3>How many characters would you like in your password?</h3>
+          </header>
+          <div class="prompt-body">
+            <div class="slider-container">
+              <p>Characters: <span id="slider-value"></span></p>
+              <input type="range" min="8" max="128" value="15" class="slider" id="slider-length">
+            </div>
           </div>
         </div>
-      </div>
-      <div class="card-body" id="prompt-characters">
-        <header class="prompt-header">
-          <h3>Select the types of characters you want in your password.</h3>
-        </header>
-        <div class="prompt-body flexbox">
-          <div class="char-choice">
-            <input type="checkbox" name="char-lower" id="char-lower"><label for="char-lower">Lowercase Letters</label>
-          </div>
-          <div class="char-choice">
-            <input type="checkbox" name="char-upper" id="char-upper"><label for="char-upper">Uppercase Letters</label>
-          </div>
-          <div class="char-choice">
-            <input type="checkbox" name="char-number" id="char-number"><label for="char-number">Numbers</label>
-          </div>
-          <div class="char-choice">
-            <input type="checkbox" name="char-special" id="char-special"><label for="char-special">Special
-              Characters</label>
-          </div>
-          <div class="prompt-controls">
-            <button class="btn-primary" id="generate">Generate Password</button>
-            <button class="btn-secondary" class="cancel">Cancel</button>
+        <div class="prompt">
+          <div class="card-body" id="prompt-characters">
+            <header class="prompt-header">
+              <h3>Select the types of characters you want in your password.</h3>
+            </header>
+            <div class="prompt-body flexbox-wrap">
+              <div class="char-choice">
+                <input type="checkbox" name="char-lower" id="char-lower"><label for="char-lower">Lowercase Letters</label>
+              </div>
+              <div class="char-choice">
+                <input type="checkbox" name="char-upper" id="char-upper"><label for="char-upper">Uppercase Letters</label>
+              </div>
+              <div class="char-choice">
+                <input type="checkbox" name="char-number" id="char-number"><label for="char-number">Numbers</label>
+              </div>
+              <div class="char-choice">
+                <input type="checkbox" name="char-special" id="char-special"><label for="char-special">Special Characters</label>
+              </div>
+              <div>
+                <p class="error"><span id="unselected"></span></p>
+              </div>
+              <div class="prompt-controls">
+                <button class="btn-primary" id="generate">Generate Password</button>
+                <button class="btn-secondary cancel">Cancel</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -65,7 +67,7 @@
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 
 </html>

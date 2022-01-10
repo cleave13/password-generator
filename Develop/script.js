@@ -1,19 +1,19 @@
 //GLOBAL VARIABLE DECLARATIONS
 
 //Selects the document elements from the DOM
-const configureBtn = document.getElementById("configure");
-const sliderLength = document.getElementById("slider-length");
-const sliderOutput = document.getElementById("slider-value");
+const promptWrapper = document.querySelector('.prompt-wrapper');
+const prompt = document.querySelector('.prompt');
+const cancelBtn = document.querySelector('.cancel');
+const configureBtn = document.querySelector('#configure');
 const generateBtn = document.querySelector('#generate');
+const sliderLength = document.querySelector('#slider-length');
+const sliderOutput = document.querySelector('#slider-value');
+const errorMsg = document.querySelector('#unselected');
 const passwordStyle = document.querySelector('#password');
 
 sliderOutput.innerHTML = sliderLength.value; //Displays the default value for slider length on page load.
 
-//BEHAVIORAL FUNCTIONS
-
-
-
-//UTILITY FUNCTIONS
+//FUNCTIONS
 
 //Updates the displayed number of characters when the user adjusts the slider. 
 sliderLength.oninput = function() {
@@ -35,38 +35,56 @@ function generatePassword() {
   let nextChar = '';
   
   //Check for password configuration and append relevant characters to string.
-  for (let i = 0; passwordString.length < charLength; i++) {
-    if(charLower) {
-      passwordString += lettersArray[Math.floor(Math.random() * lettersArray.length)];
-    }
-    if(charUpper) {
-      passwordString += lettersArray[Math.floor(Math.random() * lettersArray.length)].toUpperCase();
-    }
-    if(charNumber) {
-      passwordString += numbersArray[Math.floor(Math.random() * numbersArray.length)];
-    }
-    if(charSpecial) {
-      passwordString += specialArray[Math.floor(Math.random() * specialArray.length)];
-    }
+  if (!charLower && !charUpper && !charNumber && !charSpecial) {
+    errorMsg.innerHTML = 'You must select at least one value';
+  } else {
+      errorMsg.innerHTML = '';
+      for (let i = 0; passwordString.length < charLength; i++) {
+        if(charLower) {
+          passwordString += lettersArray[Math.floor(Math.random() * lettersArray.length)];
+        }
+        if(charUpper) {
+          passwordString += lettersArray[Math.floor(Math.random() * lettersArray.length)].toUpperCase();
+        }
+        if(charNumber) {
+          passwordString += numbersArray[Math.floor(Math.random() * numbersArray.length)];
+        }
+        if(charSpecial) {
+          passwordString += specialArray[Math.floor(Math.random() * specialArray.length)];
+        }
 
-    //If the string is longer than the length selected by the user, trim the string.
-    if(passwordString.length > charLength) {
-      passwordString = passwordString.substring(0, charLength);
-    }
+        //If the string is longer than the length selected by the user, trim the string.
+        if(passwordString.length > charLength) {
+          passwordString = passwordString.substring(0, charLength);
+        }
+      }
+    return passwordString;
   }
-  return passwordString;
 }
-
 // Write password to the #password input
 function writePassword() {
   const password = generatePassword(); // Calls the generate password function.
-  const passwordText = document.querySelector('#password'); // Targets the 'password' element.
-
-  passwordText.value = password; // Sets the value of the password to the generated string.
+  if (password !== undefined) {
+    const passwordText = document.querySelector('#password'); // Targets the 'password' element.
+    
+    passwordText.value = password; // Sets the value of the password to the generated string.
+  }
+  return;
 }
 //EVENT LISTENERS
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', () => {
   writePassword();
+})
+
+configureBtn.addEventListener('click', () => {
+  promptWrapper.classList.toggle('active');
+  configureBtn.classList.toggle('active');
+})
+
+cancelBtn.addEventListener('click', () => {
+  promptWrapper.classList.toggle('active');
+  configureBtn.classList.toggle('active');
+  window.location.reload();
 })
