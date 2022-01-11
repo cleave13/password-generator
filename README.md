@@ -12,11 +12,7 @@ This application does not require installation, but can be accessed anonymously 
 This simple application has two primary steps:  
 
 1. When you load the page, you will be presented with a text box with placeholder text and a primary call to action button.
-    ```md
     ![Password Home View](assets/images/password-inactive.png)
-    ```
 2. When you click the "configure" button, you will expose a list of prompts that allow you to select a character length (using the slider) and configure which special characters you would like your password to include.
-    ```md
-    ![Password Home View](assets/images/password-inactive.png)
-    ```
+    ![Password Home View](assets/images/password-active.png)
 3. When you click generate, the app will return a password with the length and character types that the user configured.
